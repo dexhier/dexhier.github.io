@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> From Simple to Complex Skills: The Case of In-Hand Object Reorientation </title>
+	<link href="res/css/bootstrap.min.css" rel="stylesheet">
+	<script src="res/css/fa.js"></script>
+
+	<style>
+      .header {
+        width: auto;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+      }
+
+      a:link,a:visited
+      {
+        color: #0071bc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #208799;
+      }
+
+      .section-div {height: 3em}
+      .content-div {height: 1em}
+
+      .no-gutters {
+	      margin-right: 0;
+	      margin-left: 0;
+      }
+
+	  .btn {
+	      margin-left: 0.2rem;
+	  	  margin-right: 0.2rem;
+	  }
+
+	</style>
+</head>
+
+<div class="header">
+	<center><h1>From Simple to Complex Skills: <br> The Case of In-Hand Object Reorientation</h1></center>
+	<div class="content-div"></div>
+</div>
+
+
+<div class="container">
+	<!--------------------- abstract --------------------->
+	<center>
+		<h2> Abstract </h2>
+		<p style="width:75%; text-align: justify; white-space: normal;"> Learning policies in simulation and transferring them to the real world has become a promising
+			approach in dexterous manipulation. However, bridging the sim-to-real gap for each new task requires
+			substantial human effort, such as careful reward engineering, hyperparameter tuning, and system identification.
+			In this work, we present a system that leverages low-level skills to address these challenges for more complex tasks.
+			Specifically, we introduce a hierarchical policy for in-hand object reorientation based on previously acquired
+			rotation skills. This hierarchical policy learns to select which low-level skill to execute based on feedback
+			from both the environment and the low-level skill policies themselves. Compared to learning from scratch, the
+			hierarchical policy is more robust to out-of-distribution changes and transfers easily from simulation to real-world
+			environments. Additionally, we propose a generalizable object pose estimator that uses proprioceptive information,
+			low-level skill predictions, and control errors as inputs to estimate the object's pose over time. We demonstrate that
+			our system can reorient objects, including symmetrical and textureless ones, to a desired pose. </p>
+	</center>
+
+	<div class="content-div"></div>
+
+	<!--------------------- Sim-Real Pipeline --------------------->
+	<center>
+	<h2> Main Results </h2>
+	</center>
+
+	<center>
+		<div class="content-div"></div>
+	<h3> We first choose the rotation targets that can be achieved by a single rotation axis.</br>
+	To test if pose predictor is accurate. </h3>
+	</center>
+	<div class="content-div"></div>
+	<div class="row align-items-center">
+		<div class="col-md-4 align-column-center">
+			<center>
+				Goal: Rotate -90° over z-axis
+				<video playsinline autoplay loop muted src="results/rst1.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-4 align-column-center">
+			<center>
+				Goal: Rotate -90° over x-axis
+				<video playsinline autoplay loop muted src="results/rst8.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-4 align-column-center">
+			<center>
+Goal: Rotate -90° over z-axis
+				<video playsinline autoplay loop muted src="results/rst10.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+	</div>
+
+		<div class="row align-items-center">
+		<div class="col-md-4 align-column-center">
+			<center>
+				Goal: Rotate 135° over y-axis
+				<video playsinline autoplay loop muted src="results/rst12.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-4 align-column-center">
+			<center>
+				Goal: Rotate -135° over z-axis
+				<video playsinline autoplay loop muted src="results/rst11.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-4 align-column-center">
+			<center>
+Goal: Rotate -90° over x-axis
+				<video playsinline autoplay loop muted src="results/rst9.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+	</div>
+
+	<div class="content-div"></div>
+	<center>
+	<h3> We then choose the rotation targets that needs to select two policies. </h3>
+
+	Goal: Rotate -90° over z-axis then 90° over y-axis.
+	</center>
+	<div class="content-div"></div>
+
+			<div class="row align-items-center">
+		<div class="col-md-4 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/rst5.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-4 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/rst6.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-4 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/rst7.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+	</div>
+
+		<div class="content-div"></div>
+	<center>
+	<h3> Pose Prediction in Simulation. </h3>
+
+	Training Objects.
+	</center>
+	<div class="content-div"></div>
+
+			<div class="row align-items-center">
+		<div class="col-md-3 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/apple.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-3 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/cylinder.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-3 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/piggy_bank.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+				<div class="col-md-3 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/tennis_ball.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+	</div>
+	<div class="content-div"></div>
+	<center>
+	Novel Objects.
+	</center>
+	<div class="content-div"></div>
+
+			<div class="row align-items-center">
+			<div class="col-md-3 align-column-center">
+
+		</div>
+		<div class="col-md-3 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/elephant.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-3 align-column-center">
+			<center>
+				<video playsinline autoplay loop muted src="results/simple_cube.mp4" width="100%"
+				       style="border-radius:10px;"></video>
+			</center>
+		</div>
+		<div class="col-md-3 align-column-center">
+
+		</div>
+	</div>
+
+
+	<div class="section-div"></div>
+	<div class="section-div"></div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="res/js/bootstrap.min.js"></script>
+</div>
+
+</html>
